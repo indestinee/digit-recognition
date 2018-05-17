@@ -28,9 +28,8 @@ def split(img):# {{{
 
 def recognition(img, pattern):# {{{
     x = split(img)
+    
     p = np.array(x).reshape(4, -1).astype(int)
-    for i in range(10):
-        print(sum((p[0] - pattern[:, i])**2))
     loss = np.sum((p**2), axis=1, keepdims=True) - \
             2 * np.matmul(p, pattern) + \
             np.sum((pattern**2), axis=0, keepdims=True)
