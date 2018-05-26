@@ -1,5 +1,7 @@
 import numpy as np
 from .raw_data import recognition
+from commom import cfg as ucasbus_cfg
+
 
 try:
     import cv2
@@ -11,7 +13,7 @@ except:
     recognition_status = False
 
 
-def auto_recognition_attemps(eric, attemps=1):
+def auto_recognition_attemps(eric, attemps=ucasbus_cfg.attemps):
     msg = []
     if attemps == 0:
         return 9, msg, None
