@@ -17,7 +17,8 @@ def auto_recognition_attemps(eric, attemps=ucasbus_cfg.attemps):
     msg = []
     if attemps == 0:
         return 9, msg, None
-    msg += ['[LOG] using auto-recognition now, if error, please report to admin']
+    msg += ['[LOG] using auto-recognition now', \
+            '[WRN] if error, please report to admin']
     for i in range(attemps):
         path = eric.get_certcode(prefix=True)
         img = cv2.imread(path, 1)
