@@ -17,8 +17,7 @@ def auto_recognition_attemps(eric, attemps=ucasbus_cfg.attemps):
     msg = []
     if attemps == 0:
         return 9, msg, None
-    msg += ['[LOG] using auto-recognition now', \
-            '[WRN] if error, please report to admin']
+    msg += ['[LOG] 使用验证码自动识别系统。']
     for i in range(attemps):
         path = eric.get_certcode(prefix=True)
         img = cv2.imread(path, 1)
@@ -28,5 +27,6 @@ def auto_recognition_attemps(eric, attemps=ucasbus_cfg.attemps):
         msg += log
         if res == 0:
             return 0, msg, data
+    data['msg'] += ['[ERR] 自动登录失败，请联系管理员！']
     return 9, msg, None
 
