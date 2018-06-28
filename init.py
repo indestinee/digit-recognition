@@ -27,6 +27,6 @@ def auto_recognition_attemps(eric, attemps=ucasbus_cfg.attemps):
         msg += log
         if res == 0:
             return 0, msg, data
-    data['msg'] += ['[ERR] 自动登录失败，请联系管理员！']
+    msg += ['[ERR] 自动登录失败，请联系管理员！']
     return 9, msg, None
 
